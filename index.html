@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IP Scanner by luckyiiiv#4938</title>
     <style>
-        /* Body style für den Hintergrund und die Schrift */
+        /* Body style for background and text */
         body {
             margin: 0;
             font-family: monospace;
             background-color: black;
-            color: #ffffff; /* Infos werden weiß angezeigt */
+            color: white;
             text-align: center;
             overflow: hidden;
+            height: 100vh;
         }
 
-        /* Container für den Inhalt */
+        /* Content container */
         .content {
             position: relative;
-            z-index: 1; /* Über dem animierten Hintergrund */
-            padding-top: 20%;
+            z-index: 1; /* Above the animated background */
+            padding-top: 10%;
         }
 
-        /* Style für das Eingabefeld */
+        /* Style for the input field */
         input[type="text"] {
             padding: 10px;
             border: none;
             background-color: #333;
-            color: #00ff00; /* Grüner Text in der Textbox */
+            color: #00ff00; /* Green text in the textbox */
             font-size: 1.2em;
         }
 
-        /* Platzhaltertext für die Textbox */
+        /* Placeholder text for the textbox */
         input::placeholder {
-            color: #00ff00; /* Grüner Platzhalter-Text */
+            color: #00ff00; /* Green placeholder text */
         }
 
-        /* Style für den Button */
+        /* Style for the button */
         button {
             padding: 10px 20px;
             margin-top: 10px;
@@ -46,55 +47,98 @@
             cursor: pointer;
         }
 
-        /* Hover-Effekt für den Button */
+        /* Hover effect for the button */
         button:hover {
             background-color: #00cc00;
         }
 
-        /* Style für die Ergebnisanzeige */
+        /* Style for the results display */
         .results {
             margin-top: 20px;
             font-size: 1.1em;
         }
 
-        /* Animierter Binary-Code-Hintergrund */
+        /* Binary code background */
         .binary-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Unter dem Inhalt */
-            background-color: black;
-            color: #00ff00;
-            font-size: 20px;
-            white-space: pre-wrap;
+            z-index: -1; /* Below the content */
             overflow: hidden;
-            opacity: 0.2;
-            animation: binaryScroll 5s linear infinite;
+            background-color: black;
         }
 
-        /* Animation für den scrollenden Hintergrund */
-        @keyframes binaryScroll {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
+        /* Binary column */
+        .binary-column {
+            position: absolute;
+            top: 0;
+            width: 2%;
+            height: 100%;
+            left: 0;
+            animation: moveDown 5s linear infinite;
+            color: #00aaff; /* Dark blue binary code */
+            font-size: 20px;
+            opacity: 0.6;
+            font-family: monospace;
         }
+
+        /* Move binary code columns from top to bottom */
+        @keyframes moveDown {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        /* Set up multiple columns of binary code */
+        .binary-column:nth-child(2) { left: 5%; animation-duration: 6s; }
+        .binary-column:nth-child(3) { left: 10%; animation-duration: 7s; }
+        .binary-column:nth-child(4) { left: 15%; animation-duration: 4s; }
+        .binary-column:nth-child(5) { left: 20%; animation-duration: 8s; }
+        .binary-column:nth-child(6) { left: 25%; animation-duration: 6s; }
+        .binary-column:nth-child(7) { left: 30%; animation-duration: 5s; }
+        .binary-column:nth-child(8) { left: 35%; animation-duration: 7s; }
+        .binary-column:nth-child(9) { left: 40%; animation-duration: 8s; }
+        .binary-column:nth-child(10) { left: 45%; animation-duration: 6s; }
+        .binary-column:nth-child(11) { left: 50%; animation-duration: 5s; }
+        .binary-column:nth-child(12) { left: 55%; animation-duration: 7s; }
+        .binary-column:nth-child(13) { left: 60%; animation-duration: 6s; }
+        .binary-column:nth-child(14) { left: 65%; animation-duration: 8s; }
+        .binary-column:nth-child(15) { left: 70%; animation-duration: 5s; }
+        .binary-column:nth-child(16) { left: 75%; animation-duration: 7s; }
+        .binary-column:nth-child(17) { left: 80%; animation-duration: 6s; }
+        .binary-column:nth-child(18) { left: 85%; animation-duration: 8s; }
+        .binary-column:nth-child(19) { left: 90%; animation-duration: 5s; }
+        .binary-column:nth-child(20) { left: 95%; animation-duration: 7s; }
     </style>
 </head>
 <body>
-    <!-- Animierter Binary-Code-Hintergrund -->
+    <!-- Binary code background -->
     <div class="binary-background">
-        010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
-        101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010
-        010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
-        101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010
-        010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
-        010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
-        101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010
-        010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
+        <!-- 20 columns of binary code -->
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
+        <div class="binary-column">1010101010101010101010101010101010101010101010101010</div>
+        <div class="binary-column">0101010101010101010101010101010101010101010101010101</div>
     </div>
 
-    <!-- Inhalt -->
+    <!-- Content -->
     <div class="content">
         <h1>IP Scanner by luckyiiiv#4938</h1>
         <input type="text" id="ip-input" placeholder="Enter IP">
@@ -103,33 +147,49 @@
     </div>
 
     <script>
-        /* Funktion zum Scannen der IP-Adresse */
+        /* Function to scan the IP address */
         function scanIP() {
             let ip = document.getElementById('ip-input').value;
             if (!ip) {
-                alert('Bitte gib eine gültige IP-Adresse ein!');
+                alert('Please enter a valid IP address!');
                 return;
             }
 
-            // API-Anfrage an ip-api.com
+            // API request to ip-api.com for basic IP info
             fetch(`http://ip-api.com/json/${ip}`)
                 .then(response => response.json())
                 .then(data => {
                     let resultsDiv = document.getElementById('results');
                     if (data.status === 'fail') {
-                        resultsDiv.innerHTML = `<p>Fehler: ${data.message}</p>`;
+                        resultsDiv.innerHTML = `<p>Error: ${data.message}</p>`;
                     } else {
                         resultsDiv.innerHTML = `
                             <p><strong>IP:</strong> ${data.query}</p>
-                            <p><strong>Land:</strong> ${data.country}</p>
+                            <p><strong>Country:</strong> ${data.country}</p>
                             <p><strong>Region:</strong> ${data.regionName}</p>
-                            <p><strong>Stadt:</strong> ${data.city}</p>
+                            <p><strong>City:</strong> ${data.city}</p>
+                            <p><strong>ZIP Code:</strong> ${data.zip}</p>
+                            <p><strong>Timezone:</strong> ${data.timezone}</p>
                             <p><strong>ISP:</strong> ${data.isp}</p>
+                            <p><strong>Organization:</strong> ${data.org}</p>
+                            <p><strong>AS (Autonomous System):</strong> ${data.as}</p>
+                            <p><strong>Longitude:</strong> ${data.lon}</p>
+                            <p><strong>Latitude:</strong> ${data.lat}</p>
                         `;
+
+                        // Additional API for VPN detection (ipwhois.io as an example)
+                        fetch(`https://ipwhois.app/json/${ip}`)
+                            .then(response => response.json())
+                            .then(vpnData => {
+                                resultsDiv.innerHTML += `
+                                    <p><strong>VPN:</strong> ${vpnData.proxy ? 'Yes' : 'No'}</p>
+                                    <p><strong>ISP Details:</strong> ${vpnData.connection}</p>
+                                `;
+                            });
                     }
                 })
                 .catch(error => {
-                    console.error('Fehler bei der API-Anfrage:', error);
+                    console.error('Error with API request:', error);
                 });
         }
     </script>
